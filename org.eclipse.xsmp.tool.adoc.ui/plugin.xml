@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+    <extension
+          point="org.eclipse.xsmp.ui.tool">
+       <factory
+             description="TODO description"
+             injector="org.eclipse.xsmp.tool.adoc.ui.ADocExecutableExtensionFactory:com.google.inject.Injector"
+             id="org.eclipse.xsmp.tool.adoc"
+             name="Ascidoc generator">
+       </factory>
+    </extension>
+    
+    <extension point="org.eclipse.xtext.builder.participant">
+		<participant
+			class="org.eclipse.xsmp.tool.adoc.ui.ADocExecutableExtensionFactory:org.eclipse.xtext.builder.IXtextBuilderParticipant"
+			fileExtensions="xsmpcat"/>
+	</extension>
+</plugin>
