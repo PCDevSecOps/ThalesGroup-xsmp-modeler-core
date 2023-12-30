@@ -30,6 +30,19 @@
       <genEnumLiterals ecoreEnumLiteral="Xcatalogue.ecore#//RangeKind/MaxInclusive"/>
       <genEnumLiterals ecoreEnumLiteral="Xcatalogue.ecore#//RangeKind/Inclusive"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Xcatalogue.ecore#//TimeKind">
+      <genEnumLiterals ecoreEnumLiteral="Xcatalogue.ecore#//TimeKind/Simulation"/>
+      <genEnumLiterals ecoreEnumLiteral="Xcatalogue.ecore#//TimeKind/Mission"/>
+      <genEnumLiterals ecoreEnumLiteral="Xcatalogue.ecore#//TimeKind/Epoch"/>
+      <genEnumLiterals ecoreEnumLiteral="Xcatalogue.ecore#//TimeKind/Zulu"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Xcatalogue.ecore#//LogMessageKind">
+      <genEnumLiterals ecoreEnumLiteral="Xcatalogue.ecore#//LogMessageKind/debug"/>
+      <genEnumLiterals ecoreEnumLiteral="Xcatalogue.ecore#//LogMessageKind/info"/>
+      <genEnumLiterals ecoreEnumLiteral="Xcatalogue.ecore#//LogMessageKind/warning"/>
+      <genEnumLiterals ecoreEnumLiteral="Xcatalogue.ecore#//LogMessageKind/error"/>
+      <genEnumLiterals ecoreEnumLiteral="Xcatalogue.ecore#//LogMessageKind/event"/>
+    </genEnums>
     <genDataTypes ecoreDataType="Xcatalogue.ecore#//Description"/>
     <genDataTypes ecoreDataType="Xcatalogue.ecore#//Identifier"/>
     <genDataTypes ecoreDataType="Xcatalogue.ecore#//Name"/>
@@ -263,5 +276,115 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Xcatalogue.ecore#//KeywordExpression/name"/>
     </genClasses>
     <genClasses ecoreClass="Xcatalogue.ecore#//EmptyExpression"/>
+    <genClasses ecoreClass="Xcatalogue.ecore#//Assembly"/>
+    <genClasses ecoreClass="Xcatalogue.ecore#//TypeReference"/>
+    <genClasses ecoreClass="Xcatalogue.ecore#//ComponentTypeReference">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Xcatalogue.ecore#//ComponentTypeReference/catalogue"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Xcatalogue.ecore#//ComponentTypeReference/component"/>
+    </genClasses>
+    <genClasses ecoreClass="Xcatalogue.ecore#//FactoryTypeReference">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Xcatalogue.ecore#//FactoryTypeReference/factory"/>
+    </genClasses>
+    <genClasses ecoreClass="Xcatalogue.ecore#//UuidTypeReference">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Xcatalogue.ecore#//UuidTypeReference/uuid"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="Xcatalogue.ecore#//AbstractInstance">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Xcatalogue.ecore#//AbstractInstance/type"/>
+    </genClasses>
+    <genClasses ecoreClass="Xcatalogue.ecore#//InstanceDeclaration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Xcatalogue.ecore#//InstanceDeclaration/metadatum"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Xcatalogue.ecore#//InstanceDeclaration/container"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Xcatalogue.ecore#//InstanceDeclaration/instance"/>
+    </genClasses>
+    <genClasses ecoreClass="Xcatalogue.ecore#//Instance">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference Xcatalogue.ecore#//Instance/declaration"/>
+    </genClasses>
+    <genClasses ecoreClass="Xcatalogue.ecore#//Factory"/>
+    <genClasses ecoreClass="Xcatalogue.ecore#//Simulator">
+      <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference Xcatalogue.ecore#//Simulator/models"/>
+      <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference Xcatalogue.ecore#//Simulator/services"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Xcatalogue.ecore#//Simulator/base"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Xcatalogue.ecore#//Simulator/epoch"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Xcatalogue.ecore#//Simulator/missionStart"/>
+    </genClasses>
+    <genClasses ecoreClass="Xcatalogue.ecore#//LoadDirective">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Xcatalogue.ecore#//LoadDirective/catalogue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Xcatalogue.ecore#//LoadDirective/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Xcatalogue.ecore#//Configuration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Xcatalogue.ecore#//Configuration/field"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Xcatalogue.ecore#//Configuration/value"/>
+    </genClasses>
+    <genClasses ecoreClass="Xcatalogue.ecore#//Connection">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Xcatalogue.ecore#//Connection/from"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Xcatalogue.ecore#//Connection/to"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="Xcatalogue.ecore#//AbstractPath"/>
+    <genClasses ecoreClass="Xcatalogue.ecore#//QualifiedPath">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Xcatalogue.ecore#//QualifiedPath/next"/>
+    </genClasses>
+    <genClasses ecoreClass="Xcatalogue.ecore#//StringPath">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Xcatalogue.ecore#//StringPath/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Xcatalogue.ecore#//Path">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Xcatalogue.ecore#//Path/segment"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Xcatalogue.ecore#//Path/index"/>
+    </genClasses>
+    <genClasses ecoreClass="Xcatalogue.ecore#//Schedule">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Xcatalogue.ecore#//Schedule/entryPoint"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Xcatalogue.ecore#//Schedule/kind"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Xcatalogue.ecore#//Schedule/time"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Xcatalogue.ecore#//Schedule/cycle"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Xcatalogue.ecore#//Schedule/repeat"/>
+    </genClasses>
+    <genClasses ecoreClass="Xcatalogue.ecore#//InitEntryPoint">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Xcatalogue.ecore#//InitEntryPoint/entryPoint"/>
+    </genClasses>
+    <genClasses ecoreClass="Xcatalogue.ecore#//Task"/>
+    <genClasses ecoreClass="Xcatalogue.ecore#//Push">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Xcatalogue.ecore#//Push/field"/>
+    </genClasses>
+    <genClasses ecoreClass="Xcatalogue.ecore#//Transfer">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Xcatalogue.ecore#//Transfer/from"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Xcatalogue.ecore#//Transfer/to"/>
+    </genClasses>
+    <genClasses ecoreClass="Xcatalogue.ecore#//Call">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Xcatalogue.ecore#//Call/element"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Xcatalogue.ecore#//Call/argument"/>
+    </genClasses>
+    <genClasses ecoreClass="Xcatalogue.ecore#//LogAction">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Xcatalogue.ecore#//LogAction/message"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Xcatalogue.ecore#//LogAction/kind"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Xcatalogue.ecore#//LogAction/kindName"/>
+    </genClasses>
+    <genClasses ecoreClass="Xcatalogue.ecore#//StoreRestoreAction">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Xcatalogue.ecore#//StoreRestoreAction/store"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Xcatalogue.ecore#//StoreRestoreAction/fileName"/>
+    </genClasses>
+    <genClasses ecoreClass="Xcatalogue.ecore#//WaitAction">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Xcatalogue.ecore#//WaitAction/duration"/>
+    </genClasses>
+    <genClasses ecoreClass="Xcatalogue.ecore#//HoldAction">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Xcatalogue.ecore#//HoldAction/immediate"/>
+    </genClasses>
+    <genClasses ecoreClass="Xcatalogue.ecore#//ExitAction"/>
+    <genClasses ecoreClass="Xcatalogue.ecore#//AbortAction"/>
+    <genClasses ecoreClass="Xcatalogue.ecore#//FailureAction">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Xcatalogue.ecore#//FailureAction/unfail"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Xcatalogue.ecore#//FailureAction/failure"/>
+    </genClasses>
+    <genClasses ecoreClass="Xcatalogue.ecore#//ForcibleAction">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Xcatalogue.ecore#//ForcibleAction/field"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Xcatalogue.ecore#//ForcibleAction/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Xcatalogue.ecore#//ForcibleAction/unforce"/>
+    </genClasses>
+    <genClasses ecoreClass="Xcatalogue.ecore#//EmitGlobalEvent">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Xcatalogue.ecore#//EmitGlobalEvent/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Xcatalogue.ecore#//EmitGlobalEvent/async"/>
+    </genClasses>
+    <genClasses ecoreClass="Xcatalogue.ecore#//Subscribtion">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Xcatalogue.ecore#//Subscribtion/entryPoint"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Xcatalogue.ecore#//Subscribtion/event"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

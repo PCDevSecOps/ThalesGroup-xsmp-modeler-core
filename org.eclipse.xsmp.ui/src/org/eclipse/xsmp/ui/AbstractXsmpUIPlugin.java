@@ -16,6 +16,7 @@ import java.util.Map;
 
 import org.apache.log4j.Logger;
 import org.eclipse.emf.common.ui.EclipseUIPlugin;
+import org.eclipse.xsmp.XsmpasbRuntimeModule;
 import org.eclipse.xsmp.XsmpcatRuntimeModule;
 import org.eclipse.xsmp.XsmpcoreRuntimeModule;
 import org.eclipse.xsmp.ui.internal.XsmpActivator;
@@ -81,6 +82,15 @@ public class AbstractXsmpUIPlugin extends EclipseUIPlugin
           final var mergedModule = Modules2.mixin(runtimeModule, sharedStateModule, uiModule);
           yield Guice.createInjector(mergedModule);
         }
+        case XsmpActivator.ORG_ECLIPSE_XSMP_XSMPASB ->
+        {
+          final var runtimeModule = getXsmpasbRuntimeModule();
+          final var sharedStateModule = getSharedStateModule();
+          final var uiModule = getXsmpasbUiModule();
+          final var mergedModule = Modules2.mixin(runtimeModule, sharedStateModule, uiModule);
+          yield Guice.createInjector(mergedModule);
+        }
+
         default -> throw new IllegalArgumentException(language);
       };
     }
@@ -102,6 +112,16 @@ public class AbstractXsmpUIPlugin extends EclipseUIPlugin
     return new XsmpcatUiModule(this);
   }
 
+  protected com.google.inject.Module getXsmpasbRuntimeModule()
+  {
+    return new XsmpasbRuntimeModule();
+  }
+
+  protected com.google.inject.Module getXsmpasbUiModule()
+  {
+    return new XsmpasbUiModule(this);
+  }
+
   protected com.google.inject.Module getXsmpcoreRuntimeModule()
   {
     return new XsmpcoreRuntimeModule();
@@ -121,7 +141,7 @@ public class AbstractXsmpUIPlugin extends EclipseUIPlugin
   protected Object doGetImage(String key) throws IOException
   {
     var image = super.doGetImage(key);
-    if (image == null && !equals(XsmpUIPlugin.getInstance()))
+    if (image == null && !this.equals(XsmpUIPlugin.getInstance()))
     {
       image = XsmpUIPlugin.getInstance().getImage(key);
     }

@@ -26,6 +26,7 @@ import static org.eclipse.xsmp.xcatalogue.XcataloguePackage.ENTRY_POINT;
 import static org.eclipse.xsmp.xcatalogue.XcataloguePackage.EVENT_SINK;
 import static org.eclipse.xsmp.xcatalogue.XcataloguePackage.EVENT_SOURCE;
 import static org.eclipse.xsmp.xcatalogue.XcataloguePackage.FIELD;
+import static org.eclipse.xsmp.xcatalogue.XcataloguePackage.INSTANCE;
 import static org.eclipse.xsmp.xcatalogue.XcataloguePackage.METADATUM;
 import static org.eclipse.xsmp.xcatalogue.XcataloguePackage.NAMED_ELEMENT_REFERENCE;
 import static org.eclipse.xsmp.xcatalogue.XcataloguePackage.PARAMETER;
@@ -83,7 +84,7 @@ public class XsmpSemanticHighlightingCalculator extends DefaultSemanticHighlight
       case PARAMETER:
         highlightFeature(acceptor, object, NAMED_ELEMENT__NAME, PARAMETER_ID);
         break;
-      case FIELD, ASSOCIATION, CONSTANT, ENTRY_POINT, EVENT_SINK, EVENT_SOURCE, REFERENCE, CONTAINER, PROPERTY, ATTRIBUTE_TYPE:
+      case FIELD, ASSOCIATION, CONSTANT, ENTRY_POINT, EVENT_SINK, EVENT_SOURCE, REFERENCE, CONTAINER, PROPERTY, ATTRIBUTE_TYPE, INSTANCE:
         highlightFeature(acceptor, object, NAMED_ELEMENT__NAME, FIELD_ID);
         break;
       case NAMED_ELEMENT_REFERENCE:
