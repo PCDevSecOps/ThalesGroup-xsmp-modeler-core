@@ -39,6 +39,7 @@ Attribute:
 fragment AttributeDeclaration returns Attribute hidden(ML_COMMENT, SL_COMMENT):
     '@' (type=[Type|QualifiedName] | WS);
 
+
 Metadatum:
     {Metadatum}
     documentation=ML_DOCUMENTATION?
